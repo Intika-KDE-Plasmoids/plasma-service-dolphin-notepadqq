@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/all;
+X-KDE-StartupNotify=false
+X-KDE-Priority=TopLevel
+Actions=openWithNqq;
+InitialPreference=99
+
+[Desktop Action openWithNqq]
+Name=Open with Notepadqq
+Exec=bash -c 'if [[ -d ""$*"" ]]; then notepadqq "$*"/*; elif [[ -f ""$*"" ]]; then notepadqq "$*"; else if [ $# -ge 1 ]; then command="notepadqq"; while [ $# -gt 0 ]; do if [[ $1 = *" "* ]]; then notepadqq "$1"; else command="$command $1"; fi; shift; done; $command; elif [ $# == 0 ]; then notepadqq; fi; fi;' 'dummy-param' %F
+Icon=notepadqq
